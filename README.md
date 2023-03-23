@@ -1,5 +1,5 @@
 # Filament-Spulenhalter-liegend-OpenSCAD
-
+passend für Profil 2020
 # Es wird keine Gewährleistung auf Stabilität gegeben!
 
 ## Sourcecode für Filament-Spulenhalter-liegend-OpenSCAD
