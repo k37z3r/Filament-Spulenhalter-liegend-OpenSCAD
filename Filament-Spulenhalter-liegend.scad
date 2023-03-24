@@ -58,18 +58,21 @@ module plate_cage(){
     translate([0,0,35]) rotate([0,0,90+22.5]) rotate_extrude(angle=89.99, convexity=10, $fn=128) translate([112.01,0]) circle(6.75/2);
     translate([0,0,16.6]) rotate([0,0,90+22.5]) rotate_extrude(angle=89.99, convexity=10, $fn=128) translate([90,0]) circle(6.75/2);
 }
+module nut_hand(){
+    difference(){
+        translate([0,0,0]) cylinder(h=10, d=70, $fn=200);
+        for(a=[36:72:360]) translate([35.5*sin(a),-35.5*cos(a),-0.5]) cylinder(h=11,d=17.5, $fn=200);
+    }
+}
 module bignut(){
     difference(){
         union(){
             translate([0,0,10]) rotate_extrude($fn=200) translate([10.5,0,0]) polygon([[16,0],[16,1],[11,6],[8,6],[1,13],[0,13],[0,0]]);
             translate([0,0,10]) cylinder(h=13, d=23, $fn=8);
-            difference(){
-                translate([0,0,0]) cylinder(h=10, d=70, $fn=200);
-                for(a=[36:72:360]) translate([35.5*sin(a),-35.5*cos(a),-0.5]) cylinder(h=11,d=17.5, $fn=200);
-            }
+            nut_hand();           
         }
         linear_extrude(height = 80, center = false, convexity = 10, twist = 3000) translate([1.5, 0, 0]) circle(r = 10.5, $fn=40);
-        translate([0,0,17.5]) cylinder(h=10, d1=15, d2=30, $fn=200);
+        translate([0,0,17.5]) cylinder(h=8, d1=15, d2=30, $fn=200);
     }
 }
 module ground(){
